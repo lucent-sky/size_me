@@ -85,7 +85,67 @@ const ukRingData = [
 { circumference: 74.20, size: 'Z4'}
 ]
 
-
+const jpRingData = [
+{ size: '1', circumference: 40.84},
+{ size: '1.5', circumference: 41.36},
+{ size: '2', circumference: 41.89},
+{ size: '2.5', circumference: 42.41},
+{ size: '3', circumference: 42.94},
+{ size: '3.5', circumference: 43.46},
+{ size: '4', circumference: 43.98},
+{ size: '4.5', circumference: 44.51},
+{ size: '5', circumference: 45.03},
+{ size: '5.5', circumference: 45.55},
+{ size: '6', circumference: 46.08},
+{ size: '6.5', circumference: 46.60},
+{ size: '7', circumference: 47.12},
+{ size: '7.5', circumference: 47.65},
+{ size: '8', circumference: 48.17},
+{ size: '8.5', circumference: 48.69},
+{ size: '9', circumference: 49.22},
+{ size: '9.5', circumference: 49.74},
+{ size: '10', circumference: 50.27},
+{ size: '10.5', circumference: 50.79},
+{ size: '11', circumference: 51.31},
+{ size: '11.5', circumference: 51.84},
+{ size: '12', circumference: 52.36},
+{ size: '12.5', circumference: 52.88},
+{ size: '13', circumference: 53.41},
+{ size: '13.5', circumference: 53.93},
+{ size: '14', circumference: 54.45},
+{ size: '14.5', circumference: 54.98},
+{ size: '15', circumference: 55.50},
+{ size: '15.5', circumference: 56.03},
+{ size: '16', circumference: 56.55},
+{ size: '16.5', circumference: 57.07},
+{ size: '17', circumference: 57.60},
+{ size: '17.5', circumference: 58.12},
+{ size: '18', circumference: 58.64},
+{ size: '18.5', circumference: 59.17},
+{ size: '19', circumference: 59.69},
+{ size: '19.5', circumference: 60.21},
+{ size: '20', circumference: 60.74},
+{ size: '20.5', circumference: 61.26},
+{ size: '21', circumference: 61.78},
+{ size: '21.5', circumference: 62.31},
+{ size: '22', circumference: 62.83},
+{ size: '22.5', circumference: 63.36},
+{ size: '23', circumference: 63.88},
+{ size: '23.5', circumference: 64.40},
+{ size: '24', circumference: 64.93},
+{ size: '24.5', circumference: 65.45},
+{ size: '25', circumference: 65.97},
+{ size: '25.5', circumference: 66.50},
+{ size: '26', circumference: 67.02},
+{ size: '26.5', circumference: 67.54},
+{ size: '27', circumference: 68.07},
+{ size: '27.5', circumference: 68.59},
+{ size: '28', circumference: 69.11},
+{ size: '28.5', circumference: 69.64},
+{ size: '29', circumference: 70.16},
+{ size: '29.5', circumference: 70.69},
+{ size: '30', circumference: 71.21},
+]
 
 document.getElementById("imageInput").addEventListener("change", function (e) {
     let file = e.target.files[0];
@@ -140,6 +200,12 @@ function computeScale() {
     mmPerPixel = mmInOneInch / pixelDistance;
 
     showMessage("Scale set: " + mmPerPixel.toFixed(5) + " mm per pixel");
+}
+
+function computeEUSize(circumference){
+    return {
+        euSize: Math.round(circumference * 2) / 2,
+    };
 }
 
 function computeFinger() {
