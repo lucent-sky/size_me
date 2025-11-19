@@ -289,7 +289,7 @@ function computeFinger() {
     showMessage(
         "Finger width: " + fingerWidthMM.toFixed(2) + " mm<br>" +
         "Circumference: " + circumference.toFixed(2) + " mm<br>" +
-        "(Hook in ring size lookup here.)"
+        buildRingSizeTable(circumference)
     );
 }
 
