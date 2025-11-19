@@ -226,11 +226,11 @@ function findUKSize(circumferenceMM) {
     let closest = ukRingData[0];
     let diff = Math.abs(circumferenceMM - closest.circumference);
 
-    for (let i = 1; i < usRingData.length; i++) {
-        let d = Math.abs(circumferenceMM - usRingData[i].circumference);
+    for (let i = 1; i < ukRingData.length; i++) {
+        let d = Math.abs(circumferenceMM - ukRingData[i].circumference);
         if (d < diff) {
             diff = d;
-            closest = usRingData[i];
+            closest = ukRingData[i];
         }
     }
     return closest;
@@ -240,11 +240,11 @@ function findJPSize(circumferenceMM) {
     let closest = jpRingData[0];
     let diff = Math.abs(circumferenceMM - closest.circumference);
 
-    for (let i = 1; i < usRingData.length; i++) {
-        let d = Math.abs(circumferenceMM - usRingData[i].circumference);
+    for (let i = 1; i < jpRingData.length; i++) {
+        let d = Math.abs(circumferenceMM - jpRingData[i].circumference);
         if (d < diff) {
             diff = d;
-            closest = usRingData[i];
+            closest = jpRingData[i];
         }
     }
     return closest;
@@ -261,7 +261,7 @@ function buildRingSizeTable(circumferenceMM) {
         <table border="1" cellpadding="6">
             <tr><th>System</th><th>Size</th></tr>
             <tr><td>US</td><td>${usSize.size}</td></tr>
-            <tr><td>EU</td><td>${euSize}</td></tr>
+            <tr><td>EU</td><td>${euSize.euSize}</td></tr>
             <tr><td>UK</td><td>${ukSize.size}</td></tr>
             <tr><td>JP</td><td>${jpSize.size}</td></tr>
         </table>
