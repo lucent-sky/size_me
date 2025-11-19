@@ -202,10 +202,71 @@ function computeScale() {
     showMessage("Scale set: " + mmPerPixel.toFixed(5) + " mm per pixel");
 }
 
-function computeEUSize(circumference){
+function findEUSize(circumference){
     return {
         euSize: Math.round(circumference * 2) / 2,
     };
+}
+
+function findUSSize(circumferenceMM) {
+    let closest = usRingData[0];
+    let diff = Math.abs(circumferenceMM - closest.circumference);
+
+    for (let i = 1; i < usRingData.length; i++) {
+        let d = Math.abs(circumferenceMM - usRingData[i].circumference);
+        if (d < diff) {
+            diff = d;
+            closest = usRingData[i];
+        }
+    }
+    return closest;
+}
+
+function findUKSize(circumferenceMM) {
+    let closest = ukRingData[0];
+    let diff = Math.abs(circumferenceMM - closest.circumference);
+
+    for (let i = 1; i < usRingData.length; i++) {
+        let d = Math.abs(circumferenceMM - usRingData[i].circumference);
+        if (d < diff) {
+            diff = d;
+            closest = usRingData[i];
+        }
+    }
+    return closest;
+}
+
+function findJPSize(circumferenceMM) {
+    let closest = jpRingData[0];
+    let diff = Math.abs(circumferenceMM - closest.circumference);
+
+    for (let i = 1; i < usRingData.length; i++) {
+        let d = Math.abs(circumferenceMM - usRingData[i].circumference);
+        if (d < diff) {
+            diff = d;
+            closest = usRingData[i];
+        }
+    }
+    return closest;
+}
+
+function buildRingSizeTable(circumferenceMM) {
+    const usSize = findUSSize(circumferenceMM);
+    const euSize = findEUSize(circumferenceMM);
+    const ukSize = findUKSize(circumferenceMM);
+    const jpSize = findJPSize(circumferenceMM);
+
+    let html = `
+        <h3>Ring Size Results</h3>
+        <table border="1" cellpadding="6">
+            <tr><th>System</th><th>Size</th></tr>
+            <tr><td>US</td><td>${usSize.size}</td></tr>
+            <tr><td>EU</td><td>${euSize}</td></tr>
+            <tr><td>UK</td><td>${ukSize.size}</td></tr>
+            <tr><td>JP</td><td>${jpSize.size}</td></tr>
+        </table>
+    `;
+    return html;
 }
 
 function computeFinger() {
