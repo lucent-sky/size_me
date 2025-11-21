@@ -78,7 +78,6 @@ const ukRingData = [
 { circumference: 67.80, size: 'Y'},
 { circumference: 68.50, size: 'Z'},
 { circumference: 69.10, size: 'Z 1/2'},
-{ circumference: 69.70, size: 'Z 1/2'},
 { circumference: 71.00, size: 'Z1'},
 { circumference: 72.30, size: 'Z2'},
 { circumference: 72.90, size: 'Z3'},
